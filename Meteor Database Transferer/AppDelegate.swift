@@ -7,10 +7,10 @@
 //
 
 import Cocoa
+import ShellToolkit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
 
 
 	func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -18,9 +18,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	func applicationWillTerminate(aNotification: NSNotification) {
-		// Insert code here to tear down your application
+		
 	}
 
-
+	
 }
 

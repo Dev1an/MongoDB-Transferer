@@ -12,6 +12,12 @@
 		749DBDA71B0898260002EF97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749DBDA61B0898260002EF97 /* Images.xcassets */; };
 		749DBDAA1B0898260002EF97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749DBDA81B0898260002EF97 /* Main.storyboard */; };
 		749DBDB61B0898260002EF97 /* Meteor_Database_TransfererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749DBDB51B0898260002EF97 /* Meteor_Database_TransfererTests.swift */; };
+		74E3988D1B08A904009494D6 /* ShellToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E3988C1B08A904009494D6 /* ShellToolkit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74E398931B08A904009494D6 /* ShellToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E398881B08A904009494D6 /* ShellToolkit.framework */; };
+		74E3989C1B08A904009494D6 /* ShellToolkitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3989B1B08A904009494D6 /* ShellToolkitTests.swift */; };
+		74E3989F1B08A904009494D6 /* ShellToolkit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E398881B08A904009494D6 /* ShellToolkit.framework */; };
+		74E398A01B08A904009494D6 /* ShellToolkit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74E398881B08A904009494D6 /* ShellToolkit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		74E398A81B08A926009494D6 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E398A71B08A926009494D6 /* Command.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,7 +28,42 @@
 			remoteGlobalIDString = 749DBD9C1B0898260002EF97;
 			remoteInfo = "Meteor Database Transferer";
 		};
+		74E398941B08A904009494D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 749DBD951B0898260002EF97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74E398871B08A904009494D6;
+			remoteInfo = ShellToolkit;
+		};
+		74E398961B08A904009494D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 749DBD951B0898260002EF97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 749DBD9C1B0898260002EF97;
+			remoteInfo = "Meteor Database Transferer";
+		};
+		74E3989D1B08A904009494D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 749DBD951B0898260002EF97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 74E398871B08A904009494D6;
+			remoteInfo = ShellToolkit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		74E3987F1B08A4D1009494D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				74E398A01B08A904009494D6 /* ShellToolkit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		749DBD9D1B0898260002EF97 /* Meteor Database Transferer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meteor Database Transferer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +75,14 @@
 		749DBDAF1B0898260002EF97 /* Meteor Database TransfererTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Meteor Database TransfererTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749DBDB41B0898260002EF97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		749DBDB51B0898260002EF97 /* Meteor_Database_TransfererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meteor_Database_TransfererTests.swift; sourceTree = "<group>"; };
+		74E398881B08A904009494D6 /* ShellToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ShellToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74E3988B1B08A904009494D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74E3988C1B08A904009494D6 /* ShellToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShellToolkit.h; sourceTree = "<group>"; };
+		74E398921B08A904009494D6 /* ShellToolkitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShellToolkitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		74E3989A1B08A904009494D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74E3989B1B08A904009494D6 /* ShellToolkitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellToolkitTests.swift; sourceTree = "<group>"; };
+		74E398A71B08A926009494D6 /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		74E398AB1B08CC4A009494D6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74E3989F1B08A904009494D6 /* ShellToolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +98,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74E398841B08A904009494D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74E3988F1B08A904009494D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E398931B08A904009494D6 /* ShellToolkit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +124,8 @@
 			children = (
 				749DBD9F1B0898260002EF97 /* Meteor Database Transferer */,
 				749DBDB21B0898260002EF97 /* Meteor Database TransfererTests */,
+				74E398891B08A904009494D6 /* ShellToolkit */,
+				74E398981B08A904009494D6 /* ShellToolkitTests */,
 				749DBD9E1B0898260002EF97 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +135,8 @@
 			children = (
 				749DBD9D1B0898260002EF97 /* Meteor Database Transferer.app */,
 				749DBDAF1B0898260002EF97 /* Meteor Database TransfererTests.xctest */,
+				74E398881B08A904009494D6 /* ShellToolkit.framework */,
+				74E398921B08A904009494D6 /* ShellToolkitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +146,7 @@
 			children = (
 				749DBDA21B0898260002EF97 /* AppDelegate.swift */,
 				749DBDA41B0898260002EF97 /* ViewController.swift */,
+				74E398AB1B08CC4A009494D6 /* MyPlayground.playground */,
 				749DBDA61B0898260002EF97 /* Images.xcassets */,
 				749DBDA81B0898260002EF97 /* Main.storyboard */,
 				749DBDA01B0898260002EF97 /* Supporting Files */,
@@ -109,7 +179,53 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		74E398891B08A904009494D6 /* ShellToolkit */ = {
+			isa = PBXGroup;
+			children = (
+				74E3988C1B08A904009494D6 /* ShellToolkit.h */,
+				74E398A71B08A926009494D6 /* Command.swift */,
+				74E3988A1B08A904009494D6 /* Supporting Files */,
+			);
+			path = ShellToolkit;
+			sourceTree = "<group>";
+		};
+		74E3988A1B08A904009494D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74E3988B1B08A904009494D6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		74E398981B08A904009494D6 /* ShellToolkitTests */ = {
+			isa = PBXGroup;
+			children = (
+				74E3989B1B08A904009494D6 /* ShellToolkitTests.swift */,
+				74E398991B08A904009494D6 /* Supporting Files */,
+			);
+			path = ShellToolkitTests;
+			sourceTree = "<group>";
+		};
+		74E398991B08A904009494D6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				74E3989A1B08A904009494D6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		74E398851B08A904009494D6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E3988D1B08A904009494D6 /* ShellToolkit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		749DBD9C1B0898260002EF97 /* Meteor Database Transferer */ = {
@@ -119,10 +235,12 @@
 				749DBD991B0898260002EF97 /* Sources */,
 				749DBD9A1B0898260002EF97 /* Frameworks */,
 				749DBD9B1B0898260002EF97 /* Resources */,
+				74E3987F1B08A4D1009494D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				74E3989E1B08A904009494D6 /* PBXTargetDependency */,
 			);
 			name = "Meteor Database Transferer";
 			productName = "Meteor Database Transferer";
@@ -147,6 +265,43 @@
 			productReference = 749DBDAF1B0898260002EF97 /* Meteor Database TransfererTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		74E398871B08A904009494D6 /* ShellToolkit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74E398A11B08A904009494D6 /* Build configuration list for PBXNativeTarget "ShellToolkit" */;
+			buildPhases = (
+				74E398831B08A904009494D6 /* Sources */,
+				74E398841B08A904009494D6 /* Frameworks */,
+				74E398851B08A904009494D6 /* Headers */,
+				74E398861B08A904009494D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShellToolkit;
+			productName = ShellToolkit;
+			productReference = 74E398881B08A904009494D6 /* ShellToolkit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		74E398911B08A904009494D6 /* ShellToolkitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74E398A41B08A904009494D6 /* Build configuration list for PBXNativeTarget "ShellToolkitTests" */;
+			buildPhases = (
+				74E3988E1B08A904009494D6 /* Sources */,
+				74E3988F1B08A904009494D6 /* Frameworks */,
+				74E398901B08A904009494D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				74E398951B08A904009494D6 /* PBXTargetDependency */,
+				74E398971B08A904009494D6 /* PBXTargetDependency */,
+			);
+			name = ShellToolkitTests;
+			productName = ShellToolkitTests;
+			productReference = 74E398921B08A904009494D6 /* ShellToolkitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -160,6 +315,13 @@
 						CreatedOnToolsVersion = 6.3.1;
 					};
 					749DBDAE1B0898260002EF97 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 749DBD9C1B0898260002EF97;
+					};
+					74E398871B08A904009494D6 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					74E398911B08A904009494D6 = {
 						CreatedOnToolsVersion = 6.3.1;
 						TestTargetID = 749DBD9C1B0898260002EF97;
 					};
@@ -180,6 +342,8 @@
 			targets = (
 				749DBD9C1B0898260002EF97 /* Meteor Database Transferer */,
 				749DBDAE1B0898260002EF97 /* Meteor Database TransfererTests */,
+				74E398871B08A904009494D6 /* ShellToolkit */,
+				74E398911B08A904009494D6 /* ShellToolkitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,6 +359,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		749DBDAD1B0898260002EF97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74E398861B08A904009494D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74E398901B08A904009494D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,6 +399,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		74E398831B08A904009494D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E398A81B08A926009494D6 /* Command.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74E3988E1B08A904009494D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74E3989C1B08A904009494D6 /* ShellToolkitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -228,6 +422,21 @@
 			isa = PBXTargetDependency;
 			target = 749DBD9C1B0898260002EF97 /* Meteor Database Transferer */;
 			targetProxy = 749DBDB01B0898260002EF97 /* PBXContainerItemProxy */;
+		};
+		74E398951B08A904009494D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74E398871B08A904009494D6 /* ShellToolkit */;
+			targetProxy = 74E398941B08A904009494D6 /* PBXContainerItemProxy */;
+		};
+		74E398971B08A904009494D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 749DBD9C1B0898260002EF97 /* Meteor Database Transferer */;
+			targetProxy = 74E398961B08A904009494D6 /* PBXContainerItemProxy */;
+		};
+		74E3989E1B08A904009494D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 74E398871B08A904009494D6 /* ShellToolkit */;
+			targetProxy = 74E3989D1B08A904009494D6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -381,6 +590,87 @@
 			};
 			name = Release;
 		};
+		74E398A21B08A904009494D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShellToolkit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		74E398A31B08A904009494D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ShellToolkit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		74E398A51B08A904009494D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShellToolkitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meteor Database Transferer.app/Contents/MacOS/Meteor Database Transferer";
+			};
+			name = Debug;
+		};
+		74E398A61B08A904009494D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ShellToolkitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Meteor Database Transferer.app/Contents/MacOS/Meteor Database Transferer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -400,12 +690,30 @@
 				749DBDBB1B0898260002EF97 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		749DBDBC1B0898260002EF97 /* Build configuration list for PBXNativeTarget "Meteor Database TransfererTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				749DBDBD1B0898260002EF97 /* Debug */,
 				749DBDBE1B0898260002EF97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74E398A11B08A904009494D6 /* Build configuration list for PBXNativeTarget "ShellToolkit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74E398A21B08A904009494D6 /* Debug */,
+				74E398A31B08A904009494D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		74E398A41B08A904009494D6 /* Build configuration list for PBXNativeTarget "ShellToolkitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74E398A51B08A904009494D6 /* Debug */,
+				74E398A61B08A904009494D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

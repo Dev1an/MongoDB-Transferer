@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6198" systemVersion="14A297b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6198"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -641,12 +641,12 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Meteor_Database_Transferer" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Window Controller - Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
@@ -667,15 +667,77 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Meteor_Database_Transferer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X13-o7-Cwf">
+                                <rect key="frame" x="328" y="13" width="138" height="32"/>
+                                <buttonCell key="cell" type="push" title="Dump database" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6UG-Wu-Tk4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="test:" target="XfG-lQ-9wD" id="cSe-xt-m5G"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="self.meteorApp" id="OAE-Ek-iO5">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSIsNotNil</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FYr-FJ-gCF">
+                                <rect key="frame" x="18" y="51" width="110" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Meteor app URL:" id="2Ru-M4-bck">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MbK-ok-vuf">
+                                <rect key="frame" x="134" y="49" width="326" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="2XA-uX-ldQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="self.meteorApp" id="0Hb-iU-6jT">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="oIr-jM-kum">
+                                <rect key="frame" x="310" y="22" width="16" height="16"/>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="animate" keyPath="self.busy" id="KzR-gy-Nw1"/>
+                                </connections>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="MbK-ok-vuf" firstAttribute="baseline" secondItem="FYr-FJ-gCF" secondAttribute="baseline" id="9dC-eM-T2e"/>
+                            <constraint firstItem="MbK-ok-vuf" firstAttribute="width" relation="greaterThanOrEqual" secondItem="X13-o7-Cwf" secondAttribute="width" id="DQc-b9-tug"/>
+                            <constraint firstItem="MbK-ok-vuf" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Mnd-UP-igq"/>
+                            <constraint firstItem="oIr-jM-kum" firstAttribute="centerY" secondItem="X13-o7-Cwf" secondAttribute="centerY" constant="0.5" id="NWi-YP-KM5"/>
+                            <constraint firstAttribute="bottom" secondItem="X13-o7-Cwf" secondAttribute="bottom" constant="20" id="duo-Yi-uop"/>
+                            <constraint firstItem="FYr-FJ-gCF" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="h4b-Vd-aZA"/>
+                            <constraint firstItem="X13-o7-Cwf" firstAttribute="leading" secondItem="oIr-jM-kum" secondAttribute="trailing" constant="8" id="mbR-yT-rNZ"/>
+                            <constraint firstAttribute="trailing" secondItem="X13-o7-Cwf" secondAttribute="trailing" constant="20" id="wMk-1p-jhq"/>
+                            <constraint firstItem="X13-o7-Cwf" firstAttribute="top" secondItem="MbK-ok-vuf" secondAttribute="bottom" constant="8" id="xlj-pE-HY7"/>
+                            <constraint firstItem="MbK-ok-vuf" firstAttribute="leading" secondItem="FYr-FJ-gCF" secondAttribute="trailing" constant="8" id="yJU-br-YbM"/>
+                            <constraint firstAttribute="trailing" secondItem="MbK-ok-vuf" secondAttribute="trailing" constant="20" id="zFv-AG-9xS"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="565.5"/>
         </scene>
     </scenes>
 </document>

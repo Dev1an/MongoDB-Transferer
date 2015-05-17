@@ -719,6 +719,16 @@ DQ
                                     <binding destination="XfG-lQ-9wD" name="animate" keyPath="self.busy" id="KzR-gy-Nw1"/>
                                 </connections>
                             </progressIndicator>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Da4-Pb-qgi">
+                                <rect key="frame" x="14" y="13" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ECg-90-x6x">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showTemp:" target="XfG-lQ-9wD" id="AHj-gE-CiD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="MbK-ok-vuf" firstAttribute="baseline" secondItem="FYr-FJ-gCF" secondAttribute="baseline" id="9dC-eM-T2e"/>

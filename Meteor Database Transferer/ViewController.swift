@@ -8,26 +8,7 @@
 
 import Cocoa
 import ShellToolkit
-
-struct MongoURL: Printable {
-	let username: NSString?
-	let password: NSString?
-	let host: NSString
-	let database: NSString?
-	
-	init (url: NSURL) {
-		username = url.user
-		password = url.password
-		host = "\(url.host!):\(url.port!)"
-		database = url.lastPathComponent
-	}
-	
-	func needsAuthorisation() -> Bool { return username != nil && password != nil }
-	
-	var description: String {
-		return "user: \(username!), password: \(password!), host: \(host), database: \(database!)"
-	}
-}
+import MeteorTool
 
 class ViewController: NSViewController {
 	
@@ -49,22 +30,35 @@ class ViewController: NSViewController {
 	@IBAction func test(sender: AnyObject) {
 		if let appUrl = meteorApp {
 			busy = true
-			Command(input: "meteor mongo --url \(appUrl)") { result, error in
-				
-				if let error = error {
-					dispatch_sync(dispatch_get_main_queue(), {
-						let alert = NSAlert()
-						alert.messageText = "An error occured while trying to retreive login credentials for \(appUrl)."
-						alert.informativeText = error
-						alert.runModal()
-					})
-				} else {
-					println(MongoURL(url: NSURL(string: result.componentsSeparatedByString("\n")[0])!))
+			getMongoCredentials(forMeteorApp: appUrl, errorHandler: showError) { credentials in
+				let temporaryDirectory = NSTemporaryDirectory() + "com.devian.meteorTool/dump/"
+				println(credentials)
+				dumpMongoDatabase(credentials, temporaryDirectory) { result, error in
+					if let error = error {
+						println("error")
+						print(error)
+					} else {
+						print(result)
+						println("dumped in \(temporaryDirectory)")
+					}
 				}
-				
 				self.busy = false
 			}
 		}
+	}
+	
+	func showError(error: NSError) {
+		busy = false
+		dispatch_sync(dispatch_get_main_queue(), {
+			let alert = NSAlert()
+			alert.messageText = error.userInfo?["description"] as? String
+			alert.informativeText = error.userInfo?["meteor help text"] as? String
+			alert.runModal()
+		})
+	}
+	
+	@IBAction func showTemp(sender: AnyObject) {
+		println(NSTemporaryDirectory())
 	}
 	
 }

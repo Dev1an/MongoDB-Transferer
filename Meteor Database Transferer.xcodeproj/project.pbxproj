@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743268AA1B18F1C700A2CF3E /* MongoResourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743268A91B18F1C700A2CF3E /* MongoResourceViewController.swift */; };
 		749DBDA31B0898260002EF97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749DBDA21B0898260002EF97 /* AppDelegate.swift */; };
 		749DBDA51B0898260002EF97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749DBDA41B0898260002EF97 /* ViewController.swift */; };
 		749DBDA71B0898260002EF97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749DBDA61B0898260002EF97 /* Images.xcassets */; };
@@ -25,6 +26,9 @@
 		74E399131B08F27C009494D6 /* MeteorTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 74E398FB1B08F27B009494D6 /* MeteorTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74E3991B1B08F292009494D6 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3991A1B08F292009494D6 /* Meteor.swift */; };
 		74E3991D1B08F356009494D6 /* MongoDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3991C1B08F356009494D6 /* MongoDB.swift */; };
+		74ECB03D1B19D73600E4A04A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB03B1B19D73600E4A04A /* TabViewController.swift */; };
+		74ECB0401B19E1F500E4A04A /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB03F1B19E1F500E4A04A /* TransferViewController.swift */; };
+		74ECB0421B19EA6300E4A04A /* MeteorResourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB0411B19EA6300E4A04A /* MeteorResourceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		743268A91B18F1C700A2CF3E /* MongoResourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoResourceViewController.swift; sourceTree = "<group>"; };
 		749DBD9D1B0898260002EF97 /* Meteor Database Transferer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meteor Database Transferer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		749DBDA11B0898260002EF97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		749DBDA21B0898260002EF97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +125,9 @@
 		74E3990E1B08F27C009494D6 /* MeteorToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorToolTests.swift; sourceTree = "<group>"; };
 		74E3991A1B08F292009494D6 /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
 		74E3991C1B08F356009494D6 /* MongoDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoDB.swift; sourceTree = "<group>"; };
+		74ECB03B1B19D73600E4A04A /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		74ECB03F1B19E1F500E4A04A /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		74ECB0411B19EA6300E4A04A /* MeteorResourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorResourceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		743268A81B18BAD100A2CF3E /* MongoDB */ = {
+			isa = PBXGroup;
+			children = (
+				74E3991C1B08F356009494D6 /* MongoDB.swift */,
+			);
+			name = MongoDB;
+			sourceTree = "<group>";
+		};
 		749DBD941B0898260002EF97 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +222,10 @@
 				74E398AB1B08CC4A009494D6 /* MyPlayground.playground */,
 				749DBDA61B0898260002EF97 /* Images.xcassets */,
 				749DBDA81B0898260002EF97 /* Main.storyboard */,
+				74ECB03F1B19E1F500E4A04A /* TransferViewController.swift */,
+				743268A91B18F1C700A2CF3E /* MongoResourceViewController.swift */,
+				74ECB0411B19EA6300E4A04A /* MeteorResourceViewController.swift */,
+				74ECB03B1B19D73600E4A04A /* TabViewController.swift */,
 				749DBDA01B0898260002EF97 /* Supporting Files */,
 			);
 			path = "Meteor Database Transferer";
@@ -276,7 +296,7 @@
 			children = (
 				74E398FF1B08F27B009494D6 /* MeteorTool.h */,
 				74E3991A1B08F292009494D6 /* Meteor.swift */,
-				74E3991C1B08F356009494D6 /* MongoDB.swift */,
+				743268A81B18BAD100A2CF3E /* MongoDB */,
 				74E398FD1B08F27B009494D6 /* Supporting Files */,
 			);
 			path = MeteorTool;
@@ -548,8 +568,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74ECB0421B19EA6300E4A04A /* MeteorResourceViewController.swift in Sources */,
+				74ECB03D1B19D73600E4A04A /* TabViewController.swift in Sources */,
 				749DBDA51B0898260002EF97 /* ViewController.swift in Sources */,
 				749DBDA31B0898260002EF97 /* AppDelegate.swift in Sources */,
+				743268AA1B18F1C700A2CF3E /* MongoResourceViewController.swift in Sources */,
+				74ECB0401B19E1F500E4A04A /* TransferViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,6 +1007,7 @@
 				74E398A31B08A904009494D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74E398A41B08A904009494D6 /* Build configuration list for PBXNativeTarget "ShellToolkitTests" */ = {
 			isa = XCConfigurationList;
@@ -991,6 +1016,7 @@
 				74E398A61B08A904009494D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74E399141B08F27C009494D6 /* Build configuration list for PBXNativeTarget "MeteorTool" */ = {
 			isa = XCConfigurationList;
@@ -999,6 +1025,7 @@
 				74E399161B08F27C009494D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		74E399171B08F27C009494D6 /* Build configuration list for PBXNativeTarget "MeteorToolTests" */ = {
 			isa = XCConfigurationList;
@@ -1007,6 +1034,7 @@
 				74E399191B08F27C009494D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

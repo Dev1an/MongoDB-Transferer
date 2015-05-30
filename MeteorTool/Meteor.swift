@@ -23,3 +23,7 @@ public func getMongoCredentials(forMeteorApp app: String, errorHandler: (NSError
 		
 	}
 }
+
+public class MeteorResource: NSObject, MongoResource {
+	public dynamic var url = ""
+}

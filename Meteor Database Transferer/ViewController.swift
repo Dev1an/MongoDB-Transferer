@@ -32,17 +32,16 @@ class ViewController: NSViewController {
 			busy = true
 			getMongoCredentials(forMeteorApp: appUrl, errorHandler: showError) { credentials in
 				let temporaryDirectory = NSTemporaryDirectory() + "com.devian.meteorTool/dump/"
-				println(credentials)
 				dumpMongoDatabase(credentials, temporaryDirectory) { result, error in
 					if let error = error {
 						println("error")
 						print(error)
+						self.busy = false
 					} else {
-						print(result)
 						println("dumped in \(temporaryDirectory)")
+						self.busy = false
 					}
 				}
-				self.busy = false
 			}
 		}
 	}

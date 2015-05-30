@@ -10,7 +10,7 @@ import Foundation
 import ShellToolkit
 
 @objc public protocol MongoResource: NSObjectProtocol {
-	func dump(path: String, errorHandler: NSError->Void, completionHandler: ()->())
+	func dump(path: String, errorHandler: NSError->Void, completionHandler: (String)->())
 	func restore(fromPath path: String, errorHandler: NSError->Void, completionHandler: ()->())
 }
 
@@ -19,22 +19,22 @@ public class MongoServer: NSObject, MongoResource {
 	public var password: NSString?
 	public var host: NSString?
 	public var port: NSNumber?
-	public var database: NSString?
+	public var database: NSString
 	
 	public init (url: NSURL) {
 		username = url.user
 		password = url.password
 		host = url.host
 		port = url.port
-		database = url.lastPathComponent
+		database = url.lastPathComponent!
 	}
 	
 	func shellOptionString() -> String {
-		let shellOptions = [
+		let shellOptions: [String: Printable?] = [
 			"-u": username,
 			"-p": password,
 			"--host": host,
-			"--port": "\(port)",
+			"--port": port,
 			"-d": database
 		]
 		
@@ -51,18 +51,21 @@ public class MongoServer: NSObject, MongoResource {
 		return shellOptionString()
 	}
 	
-	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
-		Command(input: "mongodump \(self) -o \(path)", completionHandler: completionHandler)
+	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: (String) -> ()) {
+		Command(input: "mongodump \(self) -o \(path)", outputReader: nil, errorReader: nil, completionHandler: {
+			completionHandler(self.database as String)
+		})
 	}
 	
 	public func restore(fromPath path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
-		Command(input: "mongorestore \(path) \(self)", completionHandler: completionHandler)
+		Command(input: "mongorestore \(path) \(self) --drop", completionHandler: completionHandler)
 	}
 }
 
 public func transfer(source: MongoResource, destination: MongoResource, errorHandler: NSError -> Void, completionHandler: ()->()) {
 	let temporaryDirectory = NSTemporaryDirectory() + "com.devian.meteorTool/dump/"
-	source.dump(temporaryDirectory, errorHandler: errorHandler) {
-		destination.restore(fromPath: temporaryDirectory, errorHandler: errorHandler, completionHandler: completionHandler)
+	println(temporaryDirectory)
+	source.dump(temporaryDirectory, errorHandler: errorHandler) { database in
+		destination.restore(fromPath: temporaryDirectory + database, errorHandler: errorHandler, completionHandler: completionHandler)
 	}
 }

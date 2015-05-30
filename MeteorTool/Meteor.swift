@@ -27,9 +27,9 @@ public class MeteorServer: NSObject, MongoResource {
 		}
 	}
 	
-	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
-		getMongoServer(errorHandler: errorHandler) { database in
-			database.dump(path, errorHandler: errorHandler, completionHandler: completionHandler)
+	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: (String) -> ()) {
+		getMongoServer(errorHandler: errorHandler) { mongo in
+			mongo.dump(path, errorHandler: errorHandler, completionHandler: completionHandler)
 		}
 	}
 	

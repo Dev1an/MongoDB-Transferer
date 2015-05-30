@@ -689,6 +689,9 @@
                                 <buttonCell key="cell" type="push" title="Transfer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GOX-KQ-KWj">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="transfer:" target="zaH-R0-EMK" id="6BU-uK-hTy"/>
@@ -708,12 +711,15 @@
                                     </binding>
                                 </connections>
                             </button>
-                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ezd-u1-T2v">
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" doubleValue="99" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ezd-u1-T2v">
                                 <rect key="frame" x="328" y="27" width="16" height="16"/>
+                                <connections>
+                                    <binding destination="zaH-R0-EMK" name="animate" keyPath="self.transfering" id="C52-ff-mTK"/>
+                                </connections>
                             </progressIndicator>
                             <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Nl-NX-9YP">
                                 <rect key="frame" x="211" y="215" width="29" height="26"/>
-                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="D50E5F0F-6138-4266-ADE6-9885D984CA60" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BHy-1e-ZqL">
+                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="0B94B8E8-EC4D-4FC4-8852-658F308E463B" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BHy-1e-ZqL">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -735,9 +741,6 @@
                             <constraint firstItem="I0m-7R-scN" firstAttribute="top" secondItem="bcN-Lr-eO2" secondAttribute="bottom" constant="20" id="z6T-mv-DM1"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="spinner" destination="ezd-u1-T2v" id="cOt-8j-gV1"/>
-                    </connections>
                 </viewController>
                 <customObject id="Nrq-ZR-SPX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -966,7 +969,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D50E5F0F-6138-4266-ADE6-9885D984CA60" width="1" height="1">
+        <image name="0B94B8E8-EC4D-4FC4-8852-658F308E463B" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

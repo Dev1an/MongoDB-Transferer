@@ -21,11 +21,15 @@ public class Command {
 	
 	var (output, error) = (NSPipe(), NSPipe())
 	
-	public init(input: String, outputReader: Reader? = nil, errorReader: Reader? = nil) {
+	public init(input: String, outputReader: Reader? = nil, errorReader: Reader? = nil, completionHandler: (()->())? = nil) {
 		setTaskUp(input)
 		
 		output ->> outputReader
 		error ->> errorReader
+		
+		if let completionHandler = completionHandler {
+			task.terminationHandler = {task in completionHandler()}
+		}
 		
 		task.launch()
 	}

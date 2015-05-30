@@ -9,21 +9,35 @@
 import Foundation
 import ShellToolkit
 
-public func getMongoCredentials(forMeteorApp app: String, errorHandler: (NSError->Void)? = nil, completionHandler: (MongoURL)->Void) {
-	Command(input: "meteor mongo --url \(app)") { result, error in
-		
-		if let error = error {
-			errorHandler?(NSError(domain: "meteor", code: 0, userInfo: [
-				"description": "An error occured while trying to retreive login credentials for \(app).",
-				"meteor help text": error
-			]))
-		} else {
-			completionHandler(MongoURL(url: NSURL(string: result.componentsSeparatedByString("\n")[0])!))
+public class MeteorServer: NSObject, MongoResource {
+	public dynamic var url = ""
+	
+	public func getMongoServer(errorHandler: (NSError->Void)? = nil, completionHandler: (MongoServer)->Void) {
+		Command(input: "meteor mongo --url \(url)") { result, error in
+			
+			if let error = error {
+				errorHandler?(NSError(domain: "meteor", code: 0, userInfo: [
+					"description": "An error occured while trying to retreive login credentials for \(self.url).",
+					"meteor help text": error
+					]))
+			} else {
+				completionHandler(MongoServer(url: NSURL(string: result.componentsSeparatedByString("\n")[0])!))
+			}
+			
 		}
-		
+	}
+	
+	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
+		getMongoServer(errorHandler: errorHandler) { database in
+			database.dump(path, errorHandler: errorHandler, completionHandler: completionHandler)
+		}
+	}
+	
+	public func restore(fromPath path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
+		getMongoServer(errorHandler: errorHandler) { database in
+			database.restore(fromPath: path, errorHandler: errorHandler, completionHandler: completionHandler)
+		}
 	}
 }
-
-public class MeteorResource: NSObject, MongoResource {
-	public dynamic var url = ""
-}
+//
+//public func dumpMeteorDatabase(app: MeteorResource)

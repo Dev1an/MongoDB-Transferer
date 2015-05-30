@@ -14,11 +14,11 @@ class MeteorResourceViewController: NSViewController {
 	var url: String? = nil {
 		didSet {
 			if let url = url {
-				if let resource = representedObject as? MeteorResource {
+				if let resource = representedObject as? MeteorServer {
 					resource.url = url
 				} else {
-					representedObject = MeteorResource()
-					(representedObject as! MeteorResource).url = url
+					representedObject = MeteorServer()
+					(representedObject as! MeteorServer).url = url
 				}
 			} else {
 				representedObject = nil

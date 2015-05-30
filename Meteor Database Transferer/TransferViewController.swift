@@ -13,12 +13,18 @@ class TransferViewController: NSViewController {
 	
 	dynamic var sourceController: MongoResourceViewController!
 	dynamic var destinationController: MongoResourceViewController!
+	@IBOutlet var spinner: NSProgressIndicator!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+	@IBAction func transfer(sender: NSButton) {
 		
-    }
+	}
+	
+	var source: MongoResource? {
+		return sourceController.representedObject?.representedObject as? MongoResource
+	}
+	var destination: MongoResource? {
+		return destinationController.representedObject?.representedObject as? MongoResource
+	}
 	
 	override func prepareForSegue(segue: NSStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "sourceController" {

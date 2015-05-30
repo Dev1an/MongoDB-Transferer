@@ -9,14 +9,12 @@
 import Foundation
 import ShellToolkit
 
-@objc public protocol MongoResource {
-	/// returns whether this is valid resource or not
-//	func checkValid()
-//	
-//	var isValid: Bool {get}
+@objc public protocol MongoResource: NSObjectProtocol {
+	func dump(path: String, errorHandler: NSError->Void, completionHandler: ()->())
+	func restore(fromPath path: String, errorHandler: NSError->Void, completionHandler: ()->())
 }
 
-public class MongoURL: Printable, MongoResource {
+public class MongoServer: NSObject, MongoResource {
 	public var username: NSString?
 	public var password: NSString?
 	public var host: NSString?
@@ -31,7 +29,7 @@ public class MongoURL: Printable, MongoResource {
 		database = url.lastPathComponent
 	}
 	
-	public var description: String {
+	func shellOptionString() -> String {
 		let shellOptions = [
 			"-u": username,
 			"-p": password,
@@ -48,12 +46,23 @@ public class MongoURL: Printable, MongoResource {
 		}
 		return result.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
 	}
+	
+	override public var description: String {
+		return shellOptionString()
+	}
+	
+	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
+		Command(input: "mongodump \(self) -o \(path)", completionHandler: completionHandler)
+	}
+	
+	public func restore(fromPath path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
+		Command(input: "mongorestore \(path) \(self)", completionHandler: completionHandler)
+	}
 }
 
-public func dumpMongoDatabase(url: MongoURL, destination: String, callback: (String, String?)->Void) {
-	Command(input: "pwd; mongodump \(url) -o \(destination)", completionHandler: callback)
-}
-
-public func restoreMongoDatabase(source: String, destination: MongoURL, callback: (String, String?)->Void) {
-	Command(input: "mongorestore \(source) \(destination)", completionHandler: callback)
+public func transfer(source: MongoResource, destination: MongoResource, errorHandler: NSError -> Void, completionHandler: ()->()) {
+	let temporaryDirectory = NSTemporaryDirectory() + "com.devian.meteorTool/dump/"
+	source.dump(temporaryDirectory, errorHandler: errorHandler) {
+		destination.restore(fromPath: temporaryDirectory, errorHandler: errorHandler, completionHandler: completionHandler)
+	}
 }

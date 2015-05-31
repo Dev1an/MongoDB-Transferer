@@ -8,7 +8,7 @@
 
 import Cocoa
 import MeteorTool
-import ShellToolkit
+import ShellTool
 
 class MeteorResourceViewController: NSViewController {
 	

@@ -1,15 +1,15 @@
 //
-//  ShellToolkitTests.swift
-//  ShellToolkitTests
+//  ShellToolTests.swift
+//  ShellToolTests
 //
-//  Created by Damiaan Dufaux on 17/05/15.
+//  Created by Damiaan Dufaux on 31/05/15.
 //  Copyright (c) 2015 Damiaan Dufaux. All rights reserved.
 //
 
 import Cocoa
 import XCTest
 
-class ShellToolkitTests: XCTestCase {
+class ShellToolTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

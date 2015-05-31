@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import ShellToolkit
+import ShellTool
 
 public class MeteorResource: NSObject, MongoResource {
 	func getMongoServer(errorHandler: (NSError->Void)? = nil, completionHandler: (MongoServer)->Void) {}

@@ -51,7 +51,7 @@ public class Command {
 	
 	func setTaskUp(input: String) {
 		let shellString = environmentDict["SHELL"] as! String
-
+		
 		task.standardOutput = output
 		task.standardError = error
 		

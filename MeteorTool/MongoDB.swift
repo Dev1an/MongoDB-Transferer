@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import ShellToolkit
+import ShellTool
 
 @objc public protocol MongoResource: NSObjectProtocol {
 	func dump(path: String, errorHandler: NSError->Void, completionHandler: (String)->())
@@ -15,11 +15,11 @@ import ShellToolkit
 }
 
 public class MongoServer: NSObject, MongoResource {
-	public var username: NSString?
-	public var password: NSString?
-	public var host: NSString?
-	public var port: NSNumber?
-	public var database: NSString
+	public dynamic var username: NSString?
+	public dynamic var password: NSString?
+	public dynamic var host: NSString?
+	public dynamic var port: NSNumber?
+	public dynamic var database: NSString = "" // TODO: clean this up
 	
 	public init (url: NSURL) {
 		username = url.user
@@ -27,6 +27,10 @@ public class MongoServer: NSObject, MongoResource {
 		host = url.host
 		port = url.port
 		database = url.lastPathComponent!
+	}
+	
+	public override init() {
+		super.init()
 	}
 	
 	func shellOptionString() -> String {

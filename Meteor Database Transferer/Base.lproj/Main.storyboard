@@ -657,17 +657,17 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
-                        <segue destination="zaH-R0-EMK" kind="relationship" relationship="window.shadowedContentViewController" id="s9A-QA-3UM"/>
+                        <segue destination="zaH-R0-EMK" kind="relationship" relationship="window.shadowedContentViewController" id="lGm-xR-Heg"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Transfer View Controller-->
+        <!--Transfer-->
         <scene sceneID="wBQ-gC-dRW">
             <objects>
-                <viewController id="zaH-R0-EMK" customClass="TransferViewController" customModule="Meteor_Database_Transferer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Transfer" id="zaH-R0-EMK" customClass="TransferViewController" customModule="Meteor_Database_Transferer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="cGh-9d-ute">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="374"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -735,7 +735,7 @@ DQ
                 </viewController>
                 <customObject id="Nrq-ZR-SPX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="695"/>
+            <point key="canvasLocation" x="75" y="747"/>
         </scene>
         <!--Mongo Resource View Controller-->
         <scene sceneID="E3m-KI-zYh">
@@ -764,7 +764,7 @@ DQ
                 </tabViewController>
                 <customObject id="QmL-16-gv1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="699" y="727"/>
+            <point key="canvasLocation" x="689" y="747"/>
         </scene>
         <!--Local meteor app-->
         <scene sceneID="Cx4-7K-Tpc">
@@ -782,8 +782,8 @@ DQ
                                     <menu key="menu" id="vKP-bB-zjz"/>
                                 </popUpButtonCell>
                                 <connections>
-                                    <binding destination="m5v-Z7-2B3" name="contentValues" keyPath="self.runningApps" id="kzs-ua-nmQ"/>
                                     <binding destination="m5v-Z7-2B3" name="selectedValue" keyPath="self.app" previousBinding="kzs-ua-nmQ" id="Vct-i8-6U6"/>
+                                    <binding destination="m5v-Z7-2B3" name="contentValues" keyPath="self.runningApps" id="kzs-ua-nmQ"/>
                                 </connections>
                             </popUpButton>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJH-vt-c86">
@@ -808,7 +808,7 @@ DQ
                 <customObject id="PrU-e2-nyG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="oAP-ZI-dC1"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="889.5"/>
+            <point key="canvasLocation" x="1341" y="915.5"/>
         </scene>
         <!--Meteor.com-->
         <scene sceneID="hIz-AP-VOD">
@@ -861,12 +861,12 @@ DQ
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="tT7-gc-6p3"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="552"/>
+            <point key="canvasLocation" x="1341" y="578"/>
         </scene>
         <!--Mongo server-->
         <scene sceneID="nzj-Yd-To8">
             <objects>
-                <viewController title="Mongo server" id="R8O-Cf-RYd" sceneMemberID="viewController">
+                <viewController title="Mongo server" id="R8O-Cf-RYd" customClass="MongoServerViewController" customModule="Meteor_Database_Transferer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="8xc-T5-mdD">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="154"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -878,12 +878,20 @@ DQ
                                 </constraints>
                             </customView>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rF8-Ix-TDw">
-                                <rect key="frame" x="91" y="112" width="369" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="host:port" drawsBackground="YES" id="k7z-Pd-Iix">
+                                <rect key="frame" x="91" y="112" width="253" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="Host" drawsBackground="YES" id="k7z-Pd-Iix">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="setObject:" target="R8O-Cf-RYd" id="zXW-u3-lsB"/>
+                                    <binding destination="R8O-Cf-RYd" name="value" keyPath="self.server.host" id="TVG-sj-e3x">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bGi-PN-y5C">
                                 <rect key="frame" x="18" y="114" width="47" height="17"/>
@@ -900,6 +908,13 @@ DQ
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <binding destination="R8O-Cf-RYd" name="value" keyPath="self.server.username" id="ZJl-Zc-ehT">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xQT-1J-af9">
                                 <rect key="frame" x="18" y="54" width="67" height="17"/>
@@ -919,6 +934,9 @@ DQ
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
                                 </secureTextFieldCell>
+                                <connections>
+                                    <binding destination="R8O-Cf-RYd" name="value" keyPath="self.server.password" id="UIq-7D-ffO"/>
+                                </connections>
                             </secureTextField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="etY-sk-kYd">
                                 <rect key="frame" x="18" y="24" width="65" height="17"/>
@@ -935,6 +953,14 @@ DQ
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="setObject:" target="R8O-Cf-RYd" id="6Ah-Yb-eXn"/>
+                                    <binding destination="R8O-Cf-RYd" name="value" keyPath="self.server.database" id="gaf-aj-RB9">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kix-lD-0Ao">
                                 <rect key="frame" x="18" y="84" width="63" height="17"/>
@@ -944,13 +970,43 @@ DQ
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VyC-Pd-tcr">
+                                <rect key="frame" x="364" y="112" width="96" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="hNi-ZR-YxJ"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Port" drawsBackground="YES" id="NMP-34-uwe">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="ejg-wU-UHI"/>
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="R8O-Cf-RYd" name="value" keyPath="self.server.port" id="oFn-Fx-c0O">
+                                        <dictionary key="options">
+                                            <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yti-32-eNM">
+                                <rect key="frame" x="350" y="115" width="8" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=":" id="sOn-fc-H4V">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VyC-Pd-tcr" secondAttribute="trailing" constant="20" id="0Pp-ys-xR4"/>
                             <constraint firstItem="jbF-p5-eaI" firstAttribute="leading" secondItem="rF8-Ix-TDw" secondAttribute="leading" id="1VM-ay-5uo"/>
+                            <constraint firstItem="VyC-Pd-tcr" firstAttribute="leading" secondItem="Yti-32-eNM" secondAttribute="trailing" constant="8" id="37h-WY-7D5"/>
                             <constraint firstItem="IVL-bl-0xj" firstAttribute="top" secondItem="rF8-Ix-TDw" secondAttribute="bottom" constant="8" id="3sx-d9-s8b"/>
+                            <constraint firstItem="Yti-32-eNM" firstAttribute="baseline" secondItem="VyC-Pd-tcr" secondAttribute="baseline" constant="-1" id="AcB-3m-joj"/>
                             <constraint firstItem="jbF-p5-eaI" firstAttribute="top" secondItem="dqO-ak-k7T" secondAttribute="bottom" constant="10" id="Dni-tr-5DA"/>
                             <constraint firstItem="bGi-PN-y5C" firstAttribute="leading" secondItem="R2V-LF-KNb" secondAttribute="leading" id="GkH-i3-dFn"/>
-                            <constraint firstAttribute="trailing" secondItem="rF8-Ix-TDw" secondAttribute="trailing" constant="20" id="HyA-a0-KGg"/>
+                            <constraint firstItem="Yti-32-eNM" firstAttribute="leading" secondItem="rF8-Ix-TDw" secondAttribute="trailing" constant="8" id="GmD-nw-Nb6"/>
                             <constraint firstItem="dqO-ak-k7T" firstAttribute="baseline" secondItem="xQT-1J-af9" secondAttribute="baseline" id="KUC-tr-oLa"/>
                             <constraint firstItem="rF8-Ix-TDw" firstAttribute="leading" secondItem="IVL-bl-0xj" secondAttribute="leading" id="Ks2-3u-skk"/>
                             <constraint firstAttribute="bottom" secondItem="jbF-p5-eaI" secondAttribute="bottom" constant="20" id="Kx6-tI-UJL"/>
@@ -973,16 +1029,17 @@ DQ
                             <constraint firstItem="bGi-PN-y5C" firstAttribute="leading" secondItem="8xc-T5-mdD" secondAttribute="leading" constant="20" id="nDV-Mj-dZw"/>
                             <constraint firstItem="bGi-PN-y5C" firstAttribute="width" relation="lessThanOrEqual" secondItem="R2V-LF-KNb" secondAttribute="width" id="nV8-5q-yxq"/>
                             <constraint firstItem="xQT-1J-af9" firstAttribute="width" relation="lessThanOrEqual" secondItem="R2V-LF-KNb" secondAttribute="width" id="tkn-Ai-W04"/>
+                            <constraint firstItem="rF8-Ix-TDw" firstAttribute="baseline" secondItem="VyC-Pd-tcr" secondAttribute="baseline" id="wbd-kR-1Yq"/>
                             <constraint firstItem="dqO-ak-k7T" firstAttribute="leading" secondItem="rF8-Ix-TDw" secondAttribute="leading" id="zrf-eb-C74"/>
                         </constraints>
                     </view>
                 </viewController>
                 <customObject id="Wi9-Ed-ACY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="727"/>
+            <point key="canvasLocation" x="1341" y="753"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZlQ-qK-M1S"/>
+        <segue reference="tdV-1p-Y7E"/>
     </inferredMetricsTieBreakers>
 </document>

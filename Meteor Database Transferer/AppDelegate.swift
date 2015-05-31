@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import ShellToolkit
+import ShellTool
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

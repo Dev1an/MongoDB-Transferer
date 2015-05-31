@@ -52,7 +52,7 @@ public class MongoServer: NSObject, MongoResource {
 	}
 	
 	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: (String) -> ()) {
-		Command(input: "mongodump \(self) -o \(path)", outputReader: nil, errorReader: nil, completionHandler: {
+		Command(input: "mongodump \(self) -o \(path)", outputReader: {out in print(out)}, errorReader: nil, completionHandler: {
 			completionHandler(self.database as String)
 		})
 	}

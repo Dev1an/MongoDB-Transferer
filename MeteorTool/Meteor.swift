@@ -9,23 +9,8 @@
 import Foundation
 import ShellToolkit
 
-public class MeteorServer: NSObject, MongoResource {
-	public dynamic var url = ""
-	
-	public func getMongoServer(errorHandler: (NSError->Void)? = nil, completionHandler: (MongoServer)->Void) {
-		Command(input: "meteor mongo --url \(url)") { result, error in
-			
-			if let error = error {
-				errorHandler?(NSError(domain: "meteor", code: 0, userInfo: [
-					"description": "An error occured while trying to retreive login credentials for \(self.url).",
-					"meteor help text": error
-					]))
-			} else {
-				completionHandler(MongoServer(url: NSURL(string: result.componentsSeparatedByString("\n")[0])!))
-			}
-			
-		}
-	}
+public class MeteorResource: NSObject, MongoResource {
+	func getMongoServer(errorHandler: (NSError->Void)? = nil, completionHandler: (MongoServer)->Void) {}
 	
 	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: (String) -> ()) {
 		getMongoServer(errorHandler: errorHandler) { mongo in
@@ -39,5 +24,64 @@ public class MeteorServer: NSObject, MongoResource {
 		}
 	}
 }
-//
-//public func dumpMeteorDatabase(app: MeteorResource)
+
+public class MeteorServer: MeteorResource {
+	public dynamic var url = ""
+	
+	public override func getMongoServer(errorHandler: (NSError->Void)? = nil, completionHandler: (MongoServer)->Void) {
+		Command(input: "meteor mongo --url \(url)") { result, error in
+			
+			if let error = error {
+				errorHandler?(NSError(domain: "meteor", code: 0, userInfo: [
+					"description": "An error occured while trying to retreive login credentials for \(self.url).",
+					"meteor help text": error
+					]))
+			} else {
+				completionHandler(MongoServer(url: NSURL(string: result.componentsSeparatedByString("\n")[0])!))
+			}
+			
+		}
+	}
+}
+
+public class LocalMeteor: MeteorResource {
+	public dynamic var location: String
+	
+	public init(location: String) {
+		self.location = location
+	}
+
+	public override func getMongoServer(errorHandler: (NSError->Void)? = nil, completionHandler: (MongoServer)->Void) {
+		Command(input: "cd \"\(location)\"; meteor mongo --url") { result, error in
+			
+			if let error = error {
+				errorHandler?(NSError(domain: "meteor", code: 0, userInfo: [
+					"description": "An error occured while trying to retreive login credentials for \(self.location).",
+					"meteor help text": error
+					]))
+			} else {
+				completionHandler(MongoServer(url: NSURL(string: result.componentsSeparatedByString("\n")[0])!))
+			}
+			
+		}
+	}
+}
+
+var mySites: [String]?
+
+public func getMySites(callback: [String]->Void) {
+	if let mySites = mySites {
+		callback(mySites)
+	} else {
+		Command(input: "meteor list-sites") { output, errors in
+			mySites = output.componentsSeparatedByString("\n").filter({count($0)>0})
+			callback(mySites!)
+		}
+	}
+}
+
+public func getRunningApps(callback: [String]->Void) {
+	Command(input: "ps aux | egrep \"dev_bundle\\/bin\\/node.*?meteor\\/local\\/build\\/main\\.js\"") { output, error in
+		callback(output["dev_bundle\\/bin\\/node\\s([\\S\\s]*?)\\.meteor\\/local\\/build\\/main\\.js"].allGroups().map {$0[1]})
+	}
+}

@@ -8,8 +8,11 @@
 
 import Cocoa
 import MeteorTool
+import ShellToolkit
 
 class MeteorResourceViewController: NSViewController {
+	
+	dynamic var mySites = [String]()
 	
 	var url: String? = nil {
 		didSet {
@@ -27,8 +30,10 @@ class MeteorResourceViewController: NSViewController {
 	}
 	
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+		super.viewDidLoad()
+		getMySites { sites in
+			self.mySites += sites
+		}
     }
     
 }

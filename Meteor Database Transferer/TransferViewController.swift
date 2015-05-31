@@ -13,10 +13,13 @@ class TransferViewController: NSViewController {
 	
 	dynamic var sourceController: MongoResourceViewController!
 	dynamic var destinationController: MongoResourceViewController!
-	@IBOutlet var spinner: NSProgressIndicator!
-
+	dynamic var transfering = false
+	
 	@IBAction func transfer(sender: NSButton) {
-		
+		if let source = source, destination = destination {
+			transfering = true
+			MeteorTool.transfer(source, destination, handleError) {self.transfering = false}
+		}
 	}
 	
 	var source: MongoResource? {
@@ -35,4 +38,13 @@ class TransferViewController: NSViewController {
 		}
 	}
 	
+	func handleError(error: NSError) {
+		transfering = false
+		dispatch_sync(dispatch_get_main_queue(), {
+			let alert = NSAlert()
+			alert.messageText = error.userInfo?["description"] as? String
+			alert.informativeText = error.userInfo?["meteor help text"] as? String
+			alert.runModal()
+		})
+	}
 }

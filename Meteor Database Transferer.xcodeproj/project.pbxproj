@@ -29,6 +29,8 @@
 		74ECB03D1B19D73600E4A04A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB03B1B19D73600E4A04A /* TabViewController.swift */; };
 		74ECB0401B19E1F500E4A04A /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB03F1B19E1F500E4A04A /* TransferViewController.swift */; };
 		74ECB0421B19EA6300E4A04A /* MeteorResourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB0411B19EA6300E4A04A /* MeteorResourceViewController.swift */; };
+		74ECB0441B1B299F00E4A04A /* LocalMeteorResourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB0431B1B299F00E4A04A /* LocalMeteorResourceViewController.swift */; };
+		74ECB06C1B1B52CF00E4A04A /* RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ECB06B1B1B52CF00E4A04A /* RegEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		74ECB03B1B19D73600E4A04A /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		74ECB03F1B19E1F500E4A04A /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		74ECB0411B19EA6300E4A04A /* MeteorResourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorResourceViewController.swift; sourceTree = "<group>"; };
+		74ECB0431B1B299F00E4A04A /* LocalMeteorResourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalMeteorResourceViewController.swift; sourceTree = "<group>"; };
+		74ECB06B1B1B52CF00E4A04A /* RegEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,7 @@
 				74ECB03F1B19E1F500E4A04A /* TransferViewController.swift */,
 				743268A91B18F1C700A2CF3E /* MongoResourceViewController.swift */,
 				74ECB0411B19EA6300E4A04A /* MeteorResourceViewController.swift */,
+				74ECB0431B1B299F00E4A04A /* LocalMeteorResourceViewController.swift */,
 				74ECB03B1B19D73600E4A04A /* TabViewController.swift */,
 				749DBDA01B0898260002EF97 /* Supporting Files */,
 			);
@@ -260,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				74E3988C1B08A904009494D6 /* ShellToolkit.h */,
+				74ECB06B1B1B52CF00E4A04A /* RegEx.swift */,
 				74E398A71B08A926009494D6 /* Command.swift */,
 				74E3988A1B08A904009494D6 /* Supporting Files */,
 			);
@@ -571,6 +577,7 @@
 				74ECB0421B19EA6300E4A04A /* MeteorResourceViewController.swift in Sources */,
 				74ECB03D1B19D73600E4A04A /* TabViewController.swift in Sources */,
 				749DBDA51B0898260002EF97 /* ViewController.swift in Sources */,
+				74ECB0441B1B299F00E4A04A /* LocalMeteorResourceViewController.swift in Sources */,
 				749DBDA31B0898260002EF97 /* AppDelegate.swift in Sources */,
 				743268AA1B18F1C700A2CF3E /* MongoResourceViewController.swift in Sources */,
 				74ECB0401B19E1F500E4A04A /* TransferViewController.swift in Sources */,
@@ -590,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74E398A81B08A926009494D6 /* Command.swift in Sources */,
+				74ECB06C1B1B52CF00E4A04A /* RegEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

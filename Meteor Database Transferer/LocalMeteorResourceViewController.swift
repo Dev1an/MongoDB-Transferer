@@ -26,11 +26,16 @@ class LocalMeteorResourceViewController: NSViewController {
 		}
 	}
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	@IBAction func reloadRunningInstances(sender: AnyObject) {
 		getRunningApps { apps in
+			self.runningApps.removeAll(keepCapacity: true)
 			self.runningApps += apps
 		}
+	}
+	
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		reloadRunningInstances(self)
     }
     
 }

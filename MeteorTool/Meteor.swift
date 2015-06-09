@@ -13,13 +13,13 @@ public class MeteorResource: NSObject, MongoResource {
 	func getMongoServer(errorHandler: (NSError->Void)? = nil, completionHandler: (MongoServer)->Void) {}
 	
 	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: (String) -> ()) {
-		getMongoServer(errorHandler: errorHandler) { mongo in
+		getMongoServer(errorHandler) { mongo in
 			mongo.dump(path, errorHandler: errorHandler, completionHandler: completionHandler)
 		}
 	}
 	
 	public func restore(fromPath path: String, errorHandler: NSError -> Void, completionHandler: () -> ()) {
-		getMongoServer(errorHandler: errorHandler) { database in
+		getMongoServer(errorHandler) { database in
 			database.restore(fromPath: path, errorHandler: errorHandler, completionHandler: completionHandler)
 		}
 	}
@@ -74,7 +74,7 @@ public func getMySites(callback: [String]->Void) {
 		callback(mySites)
 	} else {
 		Command(input: "meteor list-sites") { output, errors in
-			mySites = output.componentsSeparatedByString("\n").filter({count($0)>0})
+			mySites = output.componentsSeparatedByString("\n").filter({$0.characters.count>0})
 			callback(mySites!)
 		}
 	}

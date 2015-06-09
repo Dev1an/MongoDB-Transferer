@@ -34,7 +34,7 @@ public class MongoServer: NSObject, MongoResource {
 	}
 	
 	func shellOptionString() -> String {
-		let shellOptions: [String: Printable?] = [
+		let shellOptions: [String: CustomStringConvertible?] = [
 			"-u": username,
 			"-p": password,
 			"--host": host,
@@ -56,7 +56,7 @@ public class MongoServer: NSObject, MongoResource {
 	}
 	
 	public func dump(path: String, errorHandler: NSError -> Void, completionHandler: (String) -> ()) {
-		Command(input: "mongodump \(self) -o \(path)", outputReader: {out in print(out)}, errorReader: nil, completionHandler: {
+		Command(input: "mongodump \(self) -o \(path)", outputReader: {out in print(out, appendNewline: false)}, errorReader: nil, completionHandler: {
 			completionHandler(self.database as String)
 		})
 	}
@@ -68,7 +68,7 @@ public class MongoServer: NSObject, MongoResource {
 
 public func transfer(source: MongoResource, destination: MongoResource, errorHandler: NSError -> Void, completionHandler: ()->()) {
 	let temporaryDirectory = NSTemporaryDirectory() + "com.devian.meteorTool/dump/"
-	println(temporaryDirectory)
+	print(temporaryDirectory)
 	source.dump(temporaryDirectory, errorHandler: errorHandler) { database in
 		destination.restore(fromPath: temporaryDirectory + database, errorHandler: errorHandler, completionHandler: completionHandler)
 	}

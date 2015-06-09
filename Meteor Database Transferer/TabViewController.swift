@@ -32,7 +32,6 @@ class TypeDictionary {
 	}
 	
 	func set<T: NSObject>(key: T.Type, value: T) {
-		let x = key.className()
 		dict[key.className()] = value
 	}
 	

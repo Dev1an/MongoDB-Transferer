@@ -16,9 +16,9 @@ class MongoResourceViewController: NSTabViewController {
 		
     }
 	
-	override func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem) {
+	override func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?) {
 		super.tabView(tabView, didSelectTabViewItem: tabViewItem)
-		representedObject = tabViewItem.viewController
+		representedObject = tabViewItem!.viewController
 	}
 	
 }

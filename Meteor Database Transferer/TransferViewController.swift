@@ -18,7 +18,7 @@ class TransferViewController: NSViewController {
 	@IBAction func transfer(sender: NSButton) {
 		if let source = source, destination = destination {
 			transfering = true
-			MeteorTool.transfer(source, destination, handleError) {self.transfering = false}
+			MeteorTool.transfer(source, destination: destination, errorHandler: handleError) {self.transfering = false}
 		}
 	}
 	
@@ -42,8 +42,8 @@ class TransferViewController: NSViewController {
 		transfering = false
 		dispatch_sync(dispatch_get_main_queue(), {
 			let alert = NSAlert()
-			alert.messageText = error.userInfo?["description"] as? String
-			alert.informativeText = error.userInfo?["meteor help text"] as? String
+			alert.messageText = error.userInfo["description"] as! String
+			alert.informativeText = error.userInfo["meteor help text"] as! String
 			alert.runModal()
 		})
 	}
